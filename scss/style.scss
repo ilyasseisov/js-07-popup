@@ -1,0 +1,208 @@
+@import 'framework';
+
+body {
+  height: 100vh;
+  background: $body-gradient;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: $color-grey-5;
+}
+
+.popup-btn {
+  width: 160px;
+  height: 160px;
+  background: white;
+  border-radius: 100%;
+  box-shadow: $shadow-grey-soft;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+
+  &:hover {
+    transform: translate(-50%, calc(-50% - 5px));
+  }
+
+  img {
+    max-width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+//////////////////////
+.overlay {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 1s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: auto;
+  max-width: 630px;
+  min-width: 320px;
+  z-index: 2000;
+  visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateX(-50%) translateY(-50%);
+  perspective: 1300px;
+
+  .content {
+    padding: 24px;
+    border-radius: 9px;
+    box-shadow: $shadow-grey-soft;
+    transition: all 0.7s;
+    transform: rotateX(-70deg);
+    opacity: 0;
+    transform-style: preserve-3d;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    .img-container {
+      text-align: center;
+      margin-bottom: 16px;
+      // background: rgb(255, 205, 205);
+      img {
+        max-width: 140px;
+        vertical-align: middle;
+      }
+    }
+
+    .title-text {
+      text-align: center;
+      margin-bottom: 16px;
+      // background: rgb(162, 163, 255);
+    }
+
+    .paragraph-text {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 48px;
+      color: $color-grey-4;
+    }
+
+    .btn-container {
+      text-align: center;
+      .btn {
+        background: $color-grey-3;
+        color: white;
+        box-shadow: $shadow-grey-soft;
+        transition: all 0.9s ease;
+        &:hover {
+          background: $color-grey-4;
+        }
+      }
+    }
+  }
+
+  &.show {
+    visibility: visible;
+
+    & ~ .overlay {
+      opacity: 1;
+      visibility: visible;
+      .one {
+        opacity: 0.6;
+        visibility: visible;
+        transform: translateX(0);
+      }
+      .two {
+        opacity: 0.6;
+        visibility: visible;
+        transform: translateX(0);
+      }
+    }
+
+    .content {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+
+    & ~ .popup-btn {
+      display: none;
+    }
+  }
+}
+
+.circle {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.6;
+  filter: blur(1px);
+
+  &.one {
+    width: 200px;
+    height: 200px;
+    background: $gradient-purple;
+    top: 20%;
+    left: 30%;
+    z-index: -1;
+    box-shadow: $shadow-purple;
+    transition: all 1.2s ease-out;
+    transform: translateX(-130px);
+    visibility: hidden;
+    opacity: 0;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 220px;
+      border-radius: 100%;
+      opacity: 0.3;
+      background: $gradient-purple;
+      z-index: -1;
+      box-shadow: $shadow-purple;
+      filter: blur(20px);
+    }
+  }
+  &.two {
+    width: 100px;
+    height: 100px;
+    background: $gradient-yellow;
+    top: 65%;
+    left: 64%;
+    z-index: -1;
+    box-shadow: $shadow-yellow;
+    transition: all 1.5s ease-out;
+    transform: translateX(90px);
+    visibility: hidden;
+    opacity: 0;
+    &::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      border-radius: 100%;
+      width: 150px;
+      height: 150px;
+      opacity: 0.5;
+      background: $gradient-yellow;
+      z-index: -1;
+      box-shadow: $shadow-yellow;
+      filter: blur(50px);
+    }
+  }
+}
