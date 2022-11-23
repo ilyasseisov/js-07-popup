@@ -2,7 +2,6 @@
 
 body {
   height: 100vh;
-  // background: $body-gradient;
   background: radial-gradient(
     circle,
     rgb(255, 255, 255) 70%,
@@ -87,7 +86,6 @@ body {
     .img-container {
       text-align: center;
       margin-bottom: 16px;
-      // background: rgb(255, 205, 205);
       img {
         max-width: 140px;
         vertical-align: middle;
@@ -97,7 +95,6 @@ body {
     .title-text {
       text-align: center;
       margin-bottom: 16px;
-      // background: rgb(162, 163, 255);
     }
 
     .paragraph-text {
@@ -210,5 +207,25 @@ body {
       box-shadow: $shadow-yellow;
       filter: blur(50px);
     }
+  }
+}
+
+.jssecrets {
+  font-weight: 500;
+  text-decoration: none !important;
+  font-family: 'Urbanist';
+  padding: 16px;
+  background: #ffc805;
+  color: #000000;
+  font-size: 1.2em;
+  letter-spacing: 0.2px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px #b8900030, 0px 8px 24px #b8900060;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  transition: all 0.3s;
+  &:hover {
+    transform: translateY(-4px);
   }
 }
