@@ -108,6 +108,12 @@ body {
   transform: translateX(-50%) translateY(-50%);
   perspective: 1300px;
 }
+@media (max-width: 400px) {
+  .popup {
+    max-width: 280px;
+    min-width: 240px;
+  }
+}
 .popup .content {
   padding: 24px;
   border-radius: 9px;
@@ -155,19 +161,19 @@ body {
 .popup.show {
   visibility: visible;
 }
+.popup.show .one {
+  opacity: 0.6;
+  visibility: visible;
+  transform: translateX(0);
+}
+.popup.show .two {
+  opacity: 0.6;
+  visibility: visible;
+  transform: translateX(0);
+}
 .popup.show ~ .overlay {
   opacity: 1;
   visibility: visible;
-}
-.popup.show ~ .overlay .one {
-  opacity: 0.6;
-  visibility: visible;
-  transform: translateX(0);
-}
-.popup.show ~ .overlay .two {
-  opacity: 0.6;
-  visibility: visible;
-  transform: translateX(0);
 }
 .popup.show .content {
   transform: rotateX(0deg);
@@ -183,18 +189,31 @@ body {
   opacity: 0.6;
   filter: blur(1px);
 }
+@media (max-width: 400px) {
+  .circle {
+    display: none;
+  }
+}
 .circle.one {
   width: 200px;
   height: 200px;
   background: linear-gradient(45deg, rgb(123, 66, 209) 0%, rgb(123, 104, 238) 100%);
-  top: 20%;
-  left: 30%;
+  top: -80px;
+  left: -80px;
   z-index: -1;
   box-shadow: 0 10px 25px rgba(123, 66, 209, 0.4);
   transition: all 1.2s ease-out;
   transform: translateX(-130px);
   visibility: hidden;
   opacity: 0;
+}
+@media (max-width: 575.9px) {
+  .circle.one {
+    width: 100px;
+    height: 100px;
+    top: -40px;
+    left: -40px;
+  }
 }
 .circle.one::after {
   content: "";
@@ -214,14 +233,22 @@ body {
   width: 100px;
   height: 100px;
   background: linear-gradient(45deg, rgb(245, 205, 81) 0%, rgb(247, 206, 81) 100%);
-  top: 65%;
-  left: 64%;
+  bottom: -40px;
+  right: -40px;
   z-index: -1;
   box-shadow: 0 10px 25px rgba(245, 205, 81, 0.4);
   transition: all 1.5s ease-out;
   transform: translateX(90px);
   visibility: hidden;
   opacity: 0;
+}
+@media (max-width: 575.9px) {
+  .circle.two {
+    width: 60px;
+    height: 60px;
+    bottom: -20px;
+    right: -20px;
+  }
 }
 .circle.two::after {
   content: "";

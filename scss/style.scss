@@ -73,6 +73,11 @@ body {
   transform: translateX(-50%) translateY(-50%);
   perspective: 1300px;
 
+  @media (max-width: 400px) {
+    max-width: 280px;
+    min-width: 240px;
+  }
+
   .content {
     padding: 24px;
     border-radius: 9px;
@@ -125,19 +130,20 @@ body {
   &.show {
     visibility: visible;
 
+    .one {
+      opacity: 0.6;
+      visibility: visible;
+      transform: translateX(0);
+    }
+    .two {
+      opacity: 0.6;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
     & ~ .overlay {
       opacity: 1;
       visibility: visible;
-      .one {
-        opacity: 0.6;
-        visibility: visible;
-        transform: translateX(0);
-      }
-      .two {
-        opacity: 0.6;
-        visibility: visible;
-        transform: translateX(0);
-      }
     }
 
     .content {
@@ -157,18 +163,30 @@ body {
   opacity: 0.6;
   filter: blur(1px);
 
+  @media (max-width: 400px) {
+    display: none;
+  }
+
   &.one {
     width: 200px;
     height: 200px;
     background: $gradient-purple;
-    top: 20%;
-    left: 30%;
+    top: -80px;
+    left: -80px;
     z-index: -1;
     box-shadow: $shadow-purple;
     transition: all 1.2s ease-out;
     transform: translateX(-130px);
     visibility: hidden;
     opacity: 0;
+
+    @media (max-width: 575.9px) {
+      width: 100px;
+      height: 100px;
+      top: -40px;
+      left: -40px;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -188,14 +206,22 @@ body {
     width: 100px;
     height: 100px;
     background: $gradient-yellow;
-    top: 65%;
-    left: 64%;
+    bottom: -40px;
+    right: -40px;
     z-index: -1;
     box-shadow: $shadow-yellow;
     transition: all 1.5s ease-out;
     transform: translateX(90px);
     visibility: hidden;
     opacity: 0;
+
+    @media (max-width: 575.9px) {
+      width: 60px;
+      height: 60px;
+      bottom: -20px;
+      right: -20px;
+    }
+
     &::after {
       content: '';
       position: absolute;
