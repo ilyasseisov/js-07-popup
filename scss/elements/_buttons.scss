@@ -8,4 +8,8 @@
   border-radius: 9px;
   position: relative;
   transition: all 0.2s linear;
+
+  @media (max-width: 400px) {
+    padding: 12px 24px;
+  }
 }

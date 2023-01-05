@@ -44,6 +44,11 @@ span {
   position: relative;
   transition: all 0.2s linear;
 }
+@media (max-width: 400px) {
+  .btn {
+    padding: 12px 24px;
+  }
+}
 
 body {
   height: 100vh;
@@ -135,9 +140,20 @@ body {
   max-width: 140px;
   vertical-align: middle;
 }
+@media (max-width: 400px) {
+  .popup .content .img-container img {
+    max-width: 100px;
+  }
+}
 .popup .content .title-text {
   text-align: center;
   margin-bottom: 16px;
+}
+@media (max-width: 400px) {
+  .popup .content .title-text {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
 }
 .popup .content .paragraph-text {
   width: 70%;
@@ -145,6 +161,12 @@ body {
   margin-right: auto;
   margin-bottom: 48px;
   color: #7c828d;
+}
+@media (max-width: 400px) {
+  .popup .content .paragraph-text {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
 }
 .popup .content .btn-container {
   text-align: center;
